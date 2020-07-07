@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet.heat demo</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+    <style>
+        #mapid { width: 800px; height: 600px; }
+        body { font: 16px/1.4 "Helvetica Neue", Arial, sans-serif; }
+        .ghbtns { position: relative; top: 4px; margin-left: 5px; }
+        a { color: #0077ff; }
+        
+    </style>
+</head>
+<body>
+
+<div id="mapid"></div>
+
+
+<script>
+var mymap = L.map('mapid').setView([-17, -46], 4);
+
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    accessToken: 'your.mapbox.access.token'
+}).addTo(mymap);
+
+//var marker = L.marker([-23.551518, -46.637239]).addTo(mymap); 
+
+var circle = L.circle([-22.380654, -49.027583], { 
+    color: 'blue',
+    fillColor: 'blue',
+    fillOpacity: 0.8,
+    radius: 240000
+
+}).addTo(mymap);
+
+var circle2 = L.circle([-27.143195, -51.021232], {
+    color: 'blue',
+    fillColor: 'blue',
+    fillOpacity: 0.8,
+    tileLayer: 'SP',
+    radius: 50000
+}).addTo(mymap);
+
+
+var circle3 = L.circle([-22.055596 , -41.681344], {
+    color: 'blue',
+    fillColor: 'blue',
+    fillOpacity: 0.8,
+    radius: 102500
+}).addTo(mymap);
+
+circle.bindPopup("I am a circle.");
+
+
+
+</script>
+
+
+</body>
+</html>
